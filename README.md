@@ -13,7 +13,7 @@ Uma API RESTful construída com Spring Boot e MySQL para gerenciar um backlog pe
 
 1. Clone o repositório:
    ```bash
-   git clone [https://github.com/viniciusvictor07/NOME_DO_REPOSITORIO.git](https://github.com/viniciusvictor07/NOME_DO_REPOSITORIO.git)
+   git clone [https://github.com/viniciusvictor07/game_backlog.git](https://github.com/viniciusvictor07/game_backlog.git)
    ```
 
 2. Configure as credenciais do seu MySQL local em `src/main/resources/application.properties`:
