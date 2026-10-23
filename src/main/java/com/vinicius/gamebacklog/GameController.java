@@ -6,7 +6,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/games")
+@RequestMapping("/api/games")
 public class GameController {
 
     private GameRepository gameRepository;
