@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Game {
@@ -11,15 +13,22 @@ public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotBlank(message = "Title is required")
     private String title;
+
+    @NotBlank(message = "Platform is required")
     private String platform;
+
+    @NotBlank(message = "Status is required")
     private String status;
+
+    @NotNull(message = "Rating is required")
     private Integer rating;
     private String review;
     private Integer playtime;
 
-    public Game() {}
+    public Game() {
+    }
 
     public Game(String title, String platform, String status, Integer rating, String review, Integer playtime) {
         this.title = title;
@@ -30,24 +39,60 @@ public class Game {
         this.playtime = playtime;
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    @SuppressWarnings("unused")
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getPlatform() { return platform; }
-    public void setPlatform(String platform) { this.platform = platform; }
+    public String getTitle() {
+        return title;
+    }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-    public Integer getRating() { return rating; }
-    public void setRating(Integer rating) { this.rating = rating; }
+    public String getPlatform() {
+        return platform;
+    }
 
-    public String getReview() { return review; }
-    public void setReview(String review) { this.review = review; }
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
 
-    public Integer getPlaytime() { return playtime; }
-    public void setPlaytime(Integer playtime) { this.playtime = playtime; }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
+    public String getReview() {
+        return review;
+    }
+
+    public void setReview(String review) {
+        this.review = review;
+    }
+
+    public Integer getPlaytime() {
+        return playtime;
+    }
+
+    public void setPlaytime(Integer playtime) {
+        this.playtime = playtime;
+    }
 }

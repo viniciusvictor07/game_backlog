@@ -1,5 +1,6 @@
 package com.vinicius.gamebacklog;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 @RequestMapping("/api/games")
 public class GameController {
 
-    private GameRepository gameRepository;
+    private final GameRepository gameRepository;
 
     public GameController(GameRepository gameRepository) {
         this.gameRepository = gameRepository;
@@ -21,12 +22,12 @@ public class GameController {
     }
 
     @PostMapping
-    public Game addGame(@RequestBody Game game) {
+    public Game addGame(@RequestBody @Valid Game game) {
         return gameRepository.save(game);
     }
 
     @PutMapping("/{id}")
-    public Game updateGame(@PathVariable Long id, @RequestBody Game updatedGame) {
+    public Game updateGame(@PathVariable Long id, @RequestBody @Valid Game updatedGame) {
         Game game = gameRepository.findById(id).orElse(null);
 
         if (game != null) {
